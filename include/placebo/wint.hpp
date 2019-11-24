@@ -12,7 +12,7 @@
 
 namespace placebo {
 
-template<size_t Bits, typename Sign, typename Arithmetic = details::warithmetic<uint64_t>>
+template <size_t Bits, typename Sign, typename Arithmetic = details::warithmetic<uint64_t>>
 class wint {
 public:
   // TODO: May be init with 0 in default constructor?
@@ -36,8 +36,20 @@ private:
   using unit_t = typename Arithmetic::unit_t;
   static constexpr size_t unit_sizeof_bits = sizeof(unit_t) * 8;
   static constexpr size_t unit_size = Bits / unit_sizeof_bits;
+  static constexpr bool is_signed = std::is_signed<Sign>::value;
 
   typename Arithmetic::unit_t data[unit_size];
+
+  // Now I want to save sign in first bit of last unit
+  // 1 - negative, 0 - positive
+  // For example
+  //  value = -34 (Bits = 8) -> data[0] = 10100010
+  //  value = 34  (Bits = 8) -> data[0] = 00100010
+  // I think that it is good choose because it saves memory
+  // Now I don't even see any reason why it is bad
+  // TODO: Check next arithmetic for support of this solution
+
+
 };
 
 }
