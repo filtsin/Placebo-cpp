@@ -10,7 +10,7 @@ find_library(GTESTMAIN gtest_main REQUIRED)
 
 set(SRC ${CMAKE_CURRENT_SOURCE_DIR}/placebo)
 
-add_executable( ${PROJECT_NAME} ${SRC}/details/arithmetic_[fill_from_builtin]_test.cpp)
+add_executable( ${PROJECT_NAME} ${SRC}/details/arithmetic_[fill_from_unsigned_builtin]_test.cpp)
 
 target_link_libraries(${PROJECT_NAME} ${GTEST} ${GTESTMAIN} pthread)
 target_compile_options(${PROJECT_NAME} PRIVATE

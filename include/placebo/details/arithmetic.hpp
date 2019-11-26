@@ -23,17 +23,16 @@ struct warithmetic {
 
   static constexpr unit_t unit_max = std::numeric_limits<unit_t>::max();
 
-  template <typename T, class = typename std::enable_if<std::is_integral<T>::value>::type>
-  static constexpr_14 void fill_from_builtin(unit_t *begin, unit_t *end, T value) noexcept {
-    using unsigned_t = typename std::make_unsigned<T>::type;
-    auto unsigned_value = static_cast<unsigned_t>(value);
+  template <typename T>
+  static constexpr_14 void fill_from_unsigned_builtin(unit_t *begin, unit_t *end, T value) noexcept {
+    static_assert(std::is_unsigned<T>::value, "value parameter should be unsigned");
 
-    const auto denominator = unsigned_value > static_cast<unsigned_t>(unit_max) ? (static_cast<unsigned_t>(unit_max) + 1)
-                                                                                : std::numeric_limits<unsigned_t>::max();
+    constexpr auto denominator = sizeof(T) > sizeof(BaseType) ? (static_cast<T>(unit_max) + 1)
+                                                              : std::numeric_limits<T>::max();
 
     for (auto it = begin; it != end; ++it) {
-      *it = static_cast<unit_t>(unsigned_value % denominator);
-      unsigned_value /= denominator;
+      *it = static_cast<unit_t>(value % denominator);
+      value /= denominator;
     }
   }
 
