@@ -6,8 +6,6 @@
 
 class fill_from_builtin_test : public testing::Test {
 protected:
-  fill_from_builtin_test() {}
-
   using arithmetic16 = placebo::details::warithmetic<uint16_t>;
   using arithmetic32 = placebo::details::warithmetic<uint32_t>;
   using arithmetic64 = placebo::details::warithmetic<uint64_t>;

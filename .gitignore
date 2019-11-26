@@ -1,0 +1,4 @@
+.idea
+bin
+test/build
+/CMakeLists.txt
