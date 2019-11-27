@@ -25,30 +25,21 @@ protected:
 BENCHMARK_TEMPLATE_F(fill_from_unsigned_builtin_bench, 16bit, uint16_t, uint64_t)(benchmark::State &state) {
   uint16_t arr[4];
   for (auto _ : state) {
-    state.PauseTiming();
-    auto num = random();
-    state.ResumeTiming();
-    arithmetic::fill_from_unsigned_builtin(arr, arr + 4, num);
+    arithmetic::fill_from_unsigned_builtin(arr, arr + 4, random());
   }
 }
 
 BENCHMARK_TEMPLATE_F(fill_from_unsigned_builtin_bench, 32bit, uint32_t, uint64_t)(benchmark::State &state) {
   uint32_t arr[2];
   for (auto _ : state) {
-    state.PauseTiming();
-    auto num = random();
-    state.ResumeTiming();
-    arithmetic::fill_from_unsigned_builtin(arr, arr + 2, num);
+    arithmetic::fill_from_unsigned_builtin(arr, arr + 2, random());
   }
 }
 
 BENCHMARK_TEMPLATE_F(fill_from_unsigned_builtin_bench, 64bit, uint64_t, uint64_t)(benchmark::State &state) {
   uint64_t arr[1];
   for (auto _ : state) {
-    state.PauseTiming();
-    auto num = random();
-    state.ResumeTiming();
-    arithmetic::fill_from_unsigned_builtin(arr, arr + 1, num);
+    arithmetic::fill_from_unsigned_builtin(arr, arr + 1, random());
   }
 }
 
