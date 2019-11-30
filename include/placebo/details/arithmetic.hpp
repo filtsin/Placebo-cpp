@@ -1,6 +1,7 @@
 #pragma once
 
 #include <placebo/evil/macro.hpp>
+#include <placebo/details/builtin.hpp>
 
 #include <cstddef>
 #include <cstdint>
@@ -10,13 +11,6 @@
 
 namespace placebo { namespace details {
 
-
-// May be need Sign parameter in template
-// Because:
-//  1) Easy logic for next functions (?)
-//  2) unit_max is different for sign and unsigned
-
-// -> I want take warithmetic for auto_int (with dynamic allocations)
 template <typename BaseType>
 struct warithmetic {
   using unit_t = BaseType;
