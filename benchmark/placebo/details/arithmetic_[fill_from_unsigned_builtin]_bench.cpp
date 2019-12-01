@@ -4,7 +4,6 @@
 
 #include <placebo/details/arithmetic.hpp>
 #include <cstdint>
-#include <random>
 #include <iostream>
 
 template <typename T>
