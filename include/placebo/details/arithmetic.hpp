@@ -21,7 +21,7 @@ struct warithmetic {
   static constexpr_14 void fill_from_unsigned_builtin(unit_t *begin, unit_t *end, T value) noexcept {
     static_assert(std::is_unsigned<T>::value, "T should be unsigned");
 
-    constexpr auto denominator = sizeof(T) > sizeof(BaseType) ? (static_cast<T>(unit_max) + 1)
+    constexpr T denominator = sizeof(T) > sizeof(BaseType) ? (static_cast<T>(unit_max) + 1)
                                                               : std::numeric_limits<T>::max();
 
     for (auto it = begin; it != end; ++it) {

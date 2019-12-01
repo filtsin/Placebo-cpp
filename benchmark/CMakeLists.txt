@@ -15,6 +15,8 @@ add_executable( ${PROJECT_NAME}
         ${SRC}/details/builtin_[multiplication_of_unsigned_builtin]_bench.cpp
         )
 
+include_directories(.)
+
 target_link_libraries(${PROJECT_NAME} ${GBENCH} ${GBENCHMAIN} pthread)
 target_compile_options(${PROJECT_NAME} PRIVATE
         -Wall -Wextra -pedantic -Wfloat-equal -Wconversion -Wlogical-op -Wshift-overflow=2 -Wduplicated-cond -Werror
