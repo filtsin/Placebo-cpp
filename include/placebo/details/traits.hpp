@@ -7,9 +7,7 @@ namespace placebo { namespace details {
 
 template <typename T>
 struct has_2x_bits {
-  enum {
-    value = std::is_integral<T>::value && sizeof(T) != sizeof(uint64_t)
-  };
+  static constexpr bool value =  std::is_integral<T>::value && sizeof(T) != sizeof(uint64_t);
 };
 
 // Convert T type with x bits to numeric type (unsigned) with 2x bits

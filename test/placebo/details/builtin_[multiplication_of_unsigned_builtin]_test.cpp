@@ -12,38 +12,26 @@ struct overflow_test {};
 
 template <>
 struct overflow_test<uint16_t> {
-  enum : uint16_t {
-    // values:
-    val1  = 60000,
-    val2  = 50000,
-    // result:
-    top   = 45776,
-    low   = 24064
-  };
+  static constexpr uint16_t val1 = 60000;
+  static constexpr uint16_t val2 = 50000;
+  static constexpr uint16_t top = 45776;
+  static constexpr uint16_t low = 24064;
 };
 
 template <>
 struct overflow_test<uint32_t> {
-  enum : uint32_t {
-    // values:
-    val1  = 4000000000,
-    val2  = 2000000000,
-    // result:
-    top   = 1862645149,
-    low   = 991952896
-  };
+  static constexpr uint32_t val1 = 4000000000;
+  static constexpr uint32_t val2 = 2000000000;
+  static constexpr uint32_t top = 1862645149;
+  static constexpr uint32_t low = 991952896;
 };
 
 template <>
 struct overflow_test<uint64_t> {
-  enum : uint64_t {
-    // values:
-    val1  = 18000000000000000000ull,
-    val2  = 10000000000000000000ull,
-    // result:
-    top   = 9757819552369539906ull,
-    low   = 1237319192521211904ull
-  };
+  static constexpr uint64_t val1 = 18000000000000000000ull;
+  static constexpr uint64_t val2 = 10000000000000000000ull;
+  static constexpr uint64_t top = 9757819552369539906ull;
+  static constexpr uint64_t low = 1237319192521211904ull;
 };
 
 template <typename T>
