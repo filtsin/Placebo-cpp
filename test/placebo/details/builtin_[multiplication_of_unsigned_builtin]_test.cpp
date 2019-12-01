@@ -70,7 +70,7 @@ public:
   }
 };
 
-using types = ::testing::Types<uint16_t, uint32_t>;
+using types = ::testing::Types<uint16_t, uint32_t, uint64_t>;
 TYPED_TEST_SUITE(multiplication_of_unsigned_builtin_test, types);
 
 TYPED_TEST(multiplication_of_unsigned_builtin_test, common) {
