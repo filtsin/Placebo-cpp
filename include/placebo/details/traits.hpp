@@ -8,7 +8,7 @@ namespace placebo { namespace details {
 template <typename T>
 struct has_2x_bits {
   enum {
-    value = sizeof(T) != sizeof(uint64_t) && std::is_integral<T>::value
+    value = std::is_integral<T>::value && sizeof(T) != sizeof(uint64_t)
   };
 };
 
